@@ -16,6 +16,7 @@
 
 java_library {
     name: "apache-xml",
+    installable: true,
     hostdex: true,
     no_framework_libs: true,
     srcs: ["src/main/java/**/*.java"],
