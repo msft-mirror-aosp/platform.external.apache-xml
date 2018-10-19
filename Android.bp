@@ -34,9 +34,6 @@ java_library {
     },
 
     no_standard_libs: true,
-    libs: [
-        "core-oj",
-        "core-libart",
-    ],
-    system_modules: "core-system-modules",
+    libs: ["core-all"],
+    system_modules: "core-all-system-modules",
 }
