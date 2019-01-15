@@ -14,14 +14,41 @@
 // limitations under the License.
 //
 
+// The set of files that contribute to APIs.
+// Generally, apache-xml source files are not marked with @hide so we add them
+// one-by-one after having done so.
+filegroup {
+    name: "apache-xml_api_files",
+    srcs: [],
+}
+
 java_library {
     name: "apache-xml",
-    installable: true,
-    hostdex: true,
-    no_framework_libs: true,
     srcs: ["src/main/java/**/*.java"],
     java_resource_dirs: ["src/main/java"],
+
+    installable: true,
+    hostdex: true,
     errorprone: {
         javacflags: ["-Xep:MissingOverride:OFF"],
     },
+
+    no_standard_libs: true,
+    libs: ["core-all"],
+    system_modules: "core-all-system-modules",
+}
+
+// A guaranteed unstripped version of apache-xml for use on device.
+// The build system may or may not strip the apache-xml jar, but this one will
+// not be stripped. See b/24535627.
+java_library {
+    name: "apache-xml-testdex",
+    static_libs: ["apache-xml"],
+
+    installable: true,
+    dex_preopt: {
+        enabled: false,
+    },
+
+    no_framework_libs: true,
 }
