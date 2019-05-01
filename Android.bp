@@ -24,6 +24,10 @@ filegroup {
 
 java_library {
     name: "apache-xml",
+    visibility: [
+        "//art/build/apex",
+        "//libcore",
+    ],
     srcs: ["src/main/java/**/*.java"],
     java_resource_dirs: ["src/main/java"],
 
