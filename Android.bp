@@ -37,7 +37,7 @@ java_library {
         javacflags: ["-Xep:MissingOverride:OFF"],
     },
 
-    no_standard_libs: true,
+    sdk_version: "none",
     libs: ["core-all"],
     system_modules: "core-all-system-modules",
 }
