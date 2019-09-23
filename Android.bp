@@ -43,7 +43,6 @@ java_library {
     },
 
     sdk_version: "none",
-    libs: ["core-all"],
     system_modules: "core-all-system-modules",
 }
 
