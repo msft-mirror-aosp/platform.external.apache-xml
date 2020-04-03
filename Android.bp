@@ -49,21 +49,3 @@ java_library {
     sdk_version: "none",
     system_modules: "core-all-system-modules",
 }
-
-// A guaranteed unstripped version of apache-xml for use on device.
-// The build system may or may not strip the apache-xml jar, but this one will
-// not be stripped. See b/24535627.
-java_library {
-    name: "apache-xml-testdex",
-    visibility: [
-        "//art:__subpackages__",
-    ],
-    static_libs: ["apache-xml"],
-
-    installable: true,
-    dex_preopt: {
-        enabled: false,
-    },
-
-    sdk_version: "core_platform",
-}
