@@ -34,7 +34,7 @@ java_library {
         "//libcore",
     ],
     apex_available: [
-        "com.android.art.release",
+        "com.android.art",
         "com.android.art.debug",
     ],
     srcs: ["src/main/java/**/*.java"],
