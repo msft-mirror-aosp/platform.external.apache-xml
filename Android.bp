@@ -31,10 +31,12 @@ java_library {
     name: "apache-xml",
     visibility: [
         "//art/build/apex",
+        "//art/build/sdk",
         "//libcore",
+        "//packages/modules/ArtPrebuilt",
     ],
     apex_available: [
-        "com.android.art.release",
+        "com.android.art",
         "com.android.art.debug",
     ],
     srcs: ["src/main/java/**/*.java"],
