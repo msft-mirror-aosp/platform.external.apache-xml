@@ -74,6 +74,9 @@ java_library {
     errorprone: {
         javacflags: ["-Xep:MissingOverride:OFF"],
     },
+    lint: {
+        warning_checks: ["SuspiciousIndentation"],
+    },
 
     sdk_version: "none",
     system_modules: "core-all-system-modules",
