@@ -49,6 +49,7 @@ import org.apache.qetest.OutputNameManager;
 import org.apache.qetest.QetestUtils;
 import org.apache.qetest.xsl.LoggingSAXErrorHandler;
 import org.apache.qetest.xsl.XSLTestfileInfo;
+import org.junit.Test;
 import org.w3c.dom.Node;
 import org.xml.sax.InputSource;
 import org.xml.sax.XMLReader;
@@ -432,5 +433,11 @@ public class ErrorListenerTest extends FileBasedTest
     {
         ErrorListenerTest app = new ErrorListenerTest();
         app.doMain(args);
+    }
+
+    // Android-added: Run main method as a JUnit test case.
+    @Test
+    public void main() {
+        main(new String[0]);
     }
 }

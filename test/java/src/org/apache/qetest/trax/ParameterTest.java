@@ -46,6 +46,7 @@ import org.apache.qetest.OutputNameManager;
 import org.apache.qetest.QetestUtils;
 import org.apache.qetest.xsl.XSLTestfileInfo;
 import org.apache.xml.utils.DefaultErrorHandler;
+import org.junit.Test;
 
 //-------------------------------------------------------------------------
 
@@ -576,5 +577,11 @@ public class ParameterTest extends FileBasedTest
     {
         ParameterTest app = new ParameterTest();
         app.doMain(args);
+    }
+
+    // Android-added: Run main method as a JUnit test case.
+    @Test
+    public void main() {
+        main(new String[0]);
     }
 }
