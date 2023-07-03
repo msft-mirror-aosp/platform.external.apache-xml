@@ -32,6 +32,7 @@ import javax.xml.transform.ErrorListener;
 import javax.xml.transform.TransformerException;
 
 import org.apache.qetest.FileBasedTest;
+import org.junit.Test;
 
 //-------------------------------------------------------------------------
 
@@ -176,5 +177,11 @@ public class ErrorListenerAPITest extends FileBasedTest
     {
         ErrorListenerAPITest app = new ErrorListenerAPITest();
         app.doMain(args);
+    }
+
+    // Android-added: Run main method as a JUnit test case.
+    @Test
+    public void main() {
+        main(new String[0]);
     }
 }

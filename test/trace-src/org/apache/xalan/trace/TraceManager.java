@@ -66,7 +66,8 @@ public class TraceManager
           throws TooManyListenersException
   {
 
-    m_transformer.setDebug(true);
+    // Android-changed: TransformerImpl in 2.7.1 doesn't have setDebug() method.
+    // m_transformer.setDebug(true);
 
     if (null == m_traceListeners)
       m_traceListeners = new Vector();

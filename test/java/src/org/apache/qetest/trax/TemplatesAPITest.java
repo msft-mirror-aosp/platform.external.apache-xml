@@ -41,6 +41,7 @@ import org.apache.qetest.OutputNameManager;
 import org.apache.qetest.QetestUtils;
 import org.apache.qetest.xsl.XSLTestfileInfo;
 import org.apache.xml.utils.DefaultErrorHandler;
+import org.junit.Test;
 
 //-------------------------------------------------------------------------
 
@@ -264,5 +265,11 @@ public class TemplatesAPITest extends FileBasedTest
         TemplatesAPITest app = new TemplatesAPITest();
 
         app.doMain(args);
+    }
+
+    // Android-added: Run main method as a JUnit test case.
+    @Test
+    public void main() {
+        main(new String[0]);
     }
 }
