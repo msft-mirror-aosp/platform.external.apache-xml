@@ -240,7 +240,9 @@ public abstract class XalanDumper
         {
             final TransformerImpl timpl = (TransformerImpl)trans;
             // We have a Xalan-J 2.x basic transformer
-            buf.append("getBaseURLOfSource=" + timpl.getBaseURLOfSource() + SEP);
+
+            // Android-changed: TransformerImpl in 2.7.1 doesn't have getBaseURLOfSource() method.
+            // buf.append("getBaseURLOfSource=" + timpl.getBaseURLOfSource() + SEP);
             // Result getOutputTarget()
             // ContentHandler getInputContentHandler(boolean doDocFrag)
             // DeclHandler getInputDeclHandler()

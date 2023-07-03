@@ -26,6 +26,8 @@
  */
 package org.apache.qetest;
 
+import org.apache.test.android.AndroidFileUtils;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.Enumeration;
@@ -125,7 +127,10 @@ public class FileBasedTest extends TestImpl
     public static final String OPT_OUTPUTDIR = "outputDir";
 
     /** Field outputDir:holds String denoting local path for outputs.  */
-    protected String outputDir = "." + File.separator + "outputs";
+    // Android-changed: The original directory isn't writeable on Android.
+    // protected String outputDir = "." + File.separator + "outputs";
+    protected String outputDir = AndroidFileUtils.getOutputFile("." + File.separator + "outputs")
+            .getPath();
 
     /**
      * Parameter: Where should get "gold" pre-validated XML files?

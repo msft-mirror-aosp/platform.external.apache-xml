@@ -41,6 +41,7 @@ import org.apache.xalan.trace.TraceListener;
 import org.apache.xalan.trace.TraceManager;
 import org.apache.xalan.transformer.TransformerImpl;
 import org.apache.xalan.transformer.XalanProperties;
+import org.junit.Test;
 
 //-------------------------------------------------------------------------
 
@@ -477,5 +478,11 @@ public class TraceListenerTest extends FileBasedTest
     {
         TraceListenerTest app = new TraceListenerTest();
         app.doMain(args);
+    }
+
+    // Android-added: Run main method as a JUnit test case.
+    @Test
+    public void main() {
+        main(new String[0]);
     }
 }

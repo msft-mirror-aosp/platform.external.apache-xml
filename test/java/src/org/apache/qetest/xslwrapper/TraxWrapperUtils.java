@@ -258,7 +258,8 @@ public abstract class TraxWrapperUtils
         }
         else if (SET_TRACE_LISTENER.equals(key) && transformer instanceof TransformerImpl)
         {
-            TraceManager traceManager = ((TransformerImpl)transformer).getTraceManager();
+            // Android-changed: TransformerImpl in 2.7.1 doesn't have getTraceManager() method.
+            // TraceManager traceManager = ((TransformerImpl)transformer).getTraceManager();
             try {
                 FileOutputStream writeStream = new FileOutputStream((String)value);
                 PrintWriter printWriter = new PrintWriter(writeStream, true);
@@ -267,7 +268,8 @@ public abstract class TraxWrapperUtils
                 traceListener.m_traceGeneration = true;
                 traceListener.m_traceSelection = true;
                 traceListener.m_traceTemplates = true;
-                traceManager.addTraceListener(traceListener);        
+                // Android-changed: TransformerImpl in 2.7.1 doesn't have getTraceManager() method.
+                // traceManager.addTraceListener(traceListener);
             } catch (FileNotFoundException fnfe) {
                 System.out.println("File not found: " + fnfe);
             } catch (Exception e) {
