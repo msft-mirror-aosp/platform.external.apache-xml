@@ -44,6 +44,7 @@ import org.apache.qetest.Logger;
 import org.apache.qetest.OutputNameManager;
 import org.apache.qetest.QetestUtils;
 import org.apache.qetest.xsl.XSLTestfileInfo;
+import org.junit.Test;
 
 //-------------------------------------------------------------------------
 
@@ -221,5 +222,11 @@ public class SerializedStylesheetTest extends FileBasedTest
     {
         SerializedStylesheetTest app = new SerializedStylesheetTest();
         app.doMain(args);
+    }
+
+    // Android-added: Run main method as a JUnit test case.
+    @Test
+    public void main() {
+        main(new String[0]);
     }
 }

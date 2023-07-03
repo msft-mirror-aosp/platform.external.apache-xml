@@ -307,9 +307,9 @@ public class TestDTMTrav extends FileBasedTest
 
 	  	// Traverse the axis and write node info to output file
       	for (int atNode = at.first(lastNode); DTM.NULL != atNode; 
-      			atNode = at.next(lastNode, atNode))
-		     buf.append(getNodeInfo(dtm, atNode, " "));
-
+      			atNode = at.next(lastNode, atNode)) {
+            buf.append(getNodeInfo(dtm, atNode, " "));
+        }
 		// Write results and close output file.
 		writeClose(fos, buf);
 
@@ -341,9 +341,9 @@ public class TestDTMTrav extends FileBasedTest
 
 	  	// Traverse the axis and write node info to output file
       	for (int atNode = at.first(lastNode); DTM.NULL != atNode; 
-      			atNode = at.next(lastNode, atNode))
-		     buf.append(getNodeInfo(dtm, atNode, " "));
-
+      			atNode = at.next(lastNode, atNode)) {
+            buf.append(getNodeInfo(dtm, atNode, " "));
+        }
 		// Write results and close output file.
 		writeClose(fos, buf);
 
@@ -376,9 +376,9 @@ public class TestDTMTrav extends FileBasedTest
 
 	  	// Traverse the axis and write node info to output file
       	for (int atNode = at.first(lastNode); DTM.NULL != atNode; 
-      			atNode = at.next(lastNode, atNode))
-		     buf.append(getNodeInfo(dtm, atNode, " "));
-
+      			atNode = at.next(lastNode, atNode)) {
+            buf.append(getNodeInfo(dtm, atNode, " "));
+        }
 		// Write results and close output file.
 		writeClose(fos, buf);
 
@@ -411,8 +411,9 @@ public class TestDTMTrav extends FileBasedTest
 
 	  	// Traverse the axis and write node info to output file
       	for (int atNode = at.first(lastNode); DTM.NULL != atNode; 
-      			atNode = at.next(lastNode, atNode))
-		     buf.append(getNodeInfo(dtm, atNode, " "));
+      			atNode = at.next(lastNode, atNode)) {
+            buf.append(getNodeInfo(dtm, atNode, " "));
+        }
 
 		// Write results and close output file.
 		writeClose(fos, buf);
@@ -446,9 +447,9 @@ public class TestDTMTrav extends FileBasedTest
 
 	  	// Traverse the axis and write node info to output file
       	for (int atNode = at.first(ANode); DTM.NULL != atNode; 
-      			atNode = at.next(ANode, atNode))
-		     buf.append(getNodeInfo(dtm, atNode, " "));
-
+      			atNode = at.next(ANode, atNode)) {
+            buf.append(getNodeInfo(dtm, atNode, " "));
+        }
 		// Write results and close output file.
 		writeClose(fos, buf);
 
@@ -515,9 +516,9 @@ public class TestDTMTrav extends FileBasedTest
 
 	  	// Traverse the axis and write node info to output file
       	for (int atNode = at.first(ANode); DTM.NULL != atNode; 
-      			atNode = at.next(ANode, atNode))
-		     buf.append(getNodeInfo(dtm, atNode, " "));
-
+      			atNode = at.next(ANode, atNode)) {
+            buf.append(getNodeInfo(dtm, atNode, " "));
+        }
 		// Write results and close output file.
 		writeClose(fos, buf);
 

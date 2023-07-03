@@ -46,6 +46,7 @@ import org.apache.qetest.QetestUtils;
 import org.apache.qetest.TestletImpl;
 import org.apache.qetest.xsl.XSLTestfileInfo;
 import org.apache.xml.utils.DefaultErrorHandler;
+import org.junit.Test;
 
 //-------------------------------------------------------------------------
 
@@ -1311,5 +1312,11 @@ public class TransformerAPITest extends FileBasedTest
     {
         TransformerAPITest app = new TransformerAPITest();
         app.doMain(args);
+    }
+
+    // Android-added: Run main method as a JUnit test case.
+    @Test
+    public void main() {
+        main(new String[0]);
     }
 }
