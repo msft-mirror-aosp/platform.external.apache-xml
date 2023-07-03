@@ -306,9 +306,10 @@ public class TransformStateTestlet extends TestletImpl
             else
             {
                 // Just log error case if transformer is ever null
-                if (null == transformer)
-                buf.append("\n  <transformer>" 
-                        + "ERROR! Transformer was null!" + "</transformer>");
+                if (null == transformer) {
+                    buf.append("\n  <transformer>"
+                            + "ERROR! Transformer was null!" + "</transformer>");
+                }
             }
         }
 

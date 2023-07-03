@@ -85,3 +85,63 @@ java_library {
     system_modules: "core-all-system-modules",
     min_sdk_version: "31",
 }
+
+java_library_static {
+    name: "apache-xml-tests",
+    visibility: [
+        "//libcore",
+        "//packages/modules/ArtPrebuilt",
+    ],
+    srcs: [
+        "test/android_src/**/*.java",
+        "test/java/src/**/*.java",
+        "test/tests/bugzilla/**/*.java",
+        "test/tests/extensions/java/**/*.java",
+        // org.apache.xalan.trace package in xalan-java has to be imported because
+        // the test version is 2.7.3 while the implementation version is 2_7_1.
+        "test/trace-src/org/apache/xalan/trace/**/*.java",
+    ],
+    exclude_srcs: [
+        // The following java files fail to build.
+        "test/java/src/org/apache/qetest/xsl/XSLApiTestsResultTask.java",
+        "test/java/src/org/apache/qetest/xsl/XSLTestAntTask.java",
+        "test/java/src/org/apache/qetest/xsl/XsltcTestsTask.java",
+        "test/java/src/org/apache/qetest/xslwrapper/XTWrapper.java",
+        "test/java/src/org/apache/qetest/xslwrapper/XsltcMainWrapper.java",
+        "test/tests/bugzilla/Bugzilla1110.java",
+        "test/tests/bugzilla/Bugzilla1288.java",
+        "test/tests/bugzilla/Bugzilla6181.java",
+        "test/tests/extensions/java/javaElem01.java",
+        "test/tests/extensions/java/javaSample4.java",
+        "test/java/src/org/apache/qetest/xalanj2/TraceListenerTest.java",
+        "test/java/src/org/apache/qetest/xslwrapper/XalanProcessWrapper.java",
+        "test/tests/bugzilla/BugzillaNodeInfo.java",
+    ],
+    java_resource_dirs: [
+        "test/tests",
+        "test/java/xdocs",
+    ],
+    // soong_zip doesn't accept this file, likely due to unescaped space characters.
+    exclude_java_resources: ["test/tests/conf-gold/output/Test 31 Gif.gif"],
+
+    errorprone: {
+        javacflags: [
+            "-Xep:MissingOverride:OFF",
+            "-Xep:LockOnBoxedPrimitive:WARN",
+        ],
+    },
+    static_libs: [
+        "apache-xml-jtidy-prebuilt",
+    ],
+    libs: [
+        "apache-xml",
+        "junit",
+    ],
+    sdk_version: "none",
+    system_modules: "core-all-system-modules",
+}
+
+java_import {
+    name: "apache-xml-jtidy-prebuilt",
+    jars: ["test/tools/jtidy-1.0.3.jar"],
+}
