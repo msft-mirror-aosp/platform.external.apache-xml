@@ -26,6 +26,8 @@
  */
 package org.apache.qetest;
 
+import org.apache.test.android.TestLogger;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -73,6 +75,9 @@ public class Reporter implements Logger
     public Reporter(Properties p)
     {
         ready = initialize(p);
+
+        // Android-changed: Hard-coded AndroidLogger here. Otherwise, all test failures are silent.
+        addLogger(TestLogger.class.getName(), null);
     }
 
     /** If we're ready to start outputting yet. */
