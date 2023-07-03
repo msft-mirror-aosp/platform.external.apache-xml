@@ -42,12 +42,14 @@ import javax.xml.transform.stream.StreamResult;
 import org.apache.qetest.FileBasedTest;
 import org.apache.qetest.OutputNameManager;
 import org.apache.qetest.xsl.XSLTestfileInfo;
+import org.apache.test.android.AndroidFileUtils;
 import org.apache.xml.dtm.DTM;
 import org.apache.xml.dtm.DTMIterator;
 import org.apache.xml.dtm.DTMManager;
 import org.apache.xml.utils.PrefixResolverDefault;
 import org.apache.xpath.XPathAPI;
 import org.apache.xpath.objects.XObject;
+import org.junit.Test;
 import org.w3c.dom.Document;
 import org.w3c.dom.DocumentFragment;
 import org.w3c.dom.Node;
@@ -355,7 +357,9 @@ public class TestXPathAPI extends FileBasedTest
 
     // Set up a DOM tree to query.
     reporter.logInfoMsg("Parsing input file "+filename);
-    InputSource in = new InputSource(new FileInputStream(filename));
+    // Android-added: Look up the file in the java resources.
+    // InputSource in = new InputSource(new FileInputStream(filename));
+    InputSource in = new InputSource(AndroidFileUtils.getInputFileUrl(filename).openStream());
     DocumentBuilderFactory dfactory = DocumentBuilderFactory.newInstance();
     dfactory.setNamespaceAware(true);
     Document doc = dfactory.newDocumentBuilder().parse(in);
@@ -430,7 +434,9 @@ public class TestXPathAPI extends FileBasedTest
     reporter.logInfoMsg("Parsing input file "+filename);
     
     // Set up a DOM tree to query.
-    InputSource in = new InputSource(new FileInputStream(filename));
+    // Android-added: Look up the file in the java resources.
+    // InputSource in = new InputSource(new FileInputStream(filename));
+    InputSource in = new InputSource(AndroidFileUtils.getInputFileUrl(filename).openStream());
     DocumentBuilderFactory dfactory = DocumentBuilderFactory.newInstance();
     Document doc = dfactory.newDocumentBuilder().parse(in);
     return doc;
@@ -456,7 +462,12 @@ public class TestXPathAPI extends FileBasedTest
   {
     TestXPathAPI app = new TestXPathAPI();
     app.doMain(args);
-  }	
-  
+  }
+
+  // Android-added: Run main method as a JUnit test case.
+  @Test
+  public void main() {
+    main(new String[0]);
+  }
 } // end of class ApplyXPath
 

@@ -29,6 +29,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import org.apache.qetest.FileBasedTest;
 import org.apache.xml.utils.PrefixResolver;
 import org.apache.xml.utils.PrefixResolverDefault;
+import org.junit.Test;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -184,5 +185,11 @@ public class PrefixResolverAPITest extends FileBasedTest
     {
         PrefixResolverAPITest app = new PrefixResolverAPITest();
         app.doMain(args);
+    }
+
+    // Android-added: Run main method as a JUnit test case.
+    @Test
+    public void main() {
+        main(new String[0]);
     }
 }

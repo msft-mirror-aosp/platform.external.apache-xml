@@ -32,6 +32,7 @@ import java.util.Vector;
 
 import org.apache.qetest.FileBasedTest;
 import org.apache.qetest.Logger;
+import org.junit.Test;
 
 //-------------------------------------------------------------------------
 
@@ -295,5 +296,11 @@ public class TransformStateTest extends FileBasedTest
     {
         TransformStateTest app = new TransformStateTest();
         app.doMain(args);
+    }
+
+    // Android-added: Run main method as a JUnit test case.
+    @Test
+    public void main() {
+        main(new String[0]);
     }
 }

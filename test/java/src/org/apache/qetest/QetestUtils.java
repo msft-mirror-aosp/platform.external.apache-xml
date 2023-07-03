@@ -21,6 +21,8 @@
 
 package org.apache.qetest;
 
+import org.apache.test.android.AndroidFileUtils;
+
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Method;
@@ -69,6 +71,12 @@ public abstract class QetestUtils
         // Don't translate a string that already looks like a URL
         if (isCommonURL(filename))
             return filename;
+
+        // Android-added: Look up the file in the java resources.
+        String androidUrl = AndroidFileUtils.getInputFileUrlString(filename);
+        if (androidUrl != null) {
+            return androidUrl;
+        }
 
         File f = new File(filename);
         String tmp = null;

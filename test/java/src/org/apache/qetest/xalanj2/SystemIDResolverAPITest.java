@@ -22,6 +22,8 @@ package org.apache.qetest.xalanj2;
 
 import org.apache.qetest.FileBasedTest;
 import org.apache.xml.utils.SystemIDResolver;
+import org.junit.Test;
+
 import java.nio.file.Paths;
 
 /**
@@ -178,5 +180,11 @@ public class SystemIDResolverAPITest extends FileBasedTest
     {
         SystemIDResolverAPITest app = new SystemIDResolverAPITest();
         app.doMain(args);
+    }
+
+    // Android-added: Run main method as a JUnit test case.
+    @Test
+    public void main() {
+        main(new String[0]);
     }
 }
