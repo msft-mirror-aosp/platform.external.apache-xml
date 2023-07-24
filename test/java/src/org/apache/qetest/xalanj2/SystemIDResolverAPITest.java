@@ -20,6 +20,7 @@
  */
 package org.apache.qetest.xalanj2;
 
+import android.platform.test.annotations.FlakyTest;
 import org.apache.qetest.FileBasedTest;
 import org.apache.xml.utils.SystemIDResolver;
 import org.junit.Test;
@@ -183,6 +184,7 @@ public class SystemIDResolverAPITest extends FileBasedTest
     }
 
     // Android-added: Run main method as a JUnit test case.
+    @FlakyTest(bugId = 292520220)
     @Test
     public void main() {
         main(new String[0]);
