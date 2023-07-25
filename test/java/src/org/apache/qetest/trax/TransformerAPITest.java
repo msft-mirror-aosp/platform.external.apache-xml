@@ -21,6 +21,7 @@
 
 package org.apache.qetest.trax;
 
+import android.platform.test.annotations.FlakyTest;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.Enumeration;
@@ -1315,6 +1316,7 @@ public class TransformerAPITest extends FileBasedTest
     }
 
     // Android-added: Run main method as a JUnit test case.
+    @FlakyTest(bugId = 292520220)
     @Test
     public void main() {
         main(new String[0]);
