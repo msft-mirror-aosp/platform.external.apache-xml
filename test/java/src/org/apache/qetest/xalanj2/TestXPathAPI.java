@@ -27,6 +27,7 @@
  */
 package org.apache.qetest.xalanj2;
 
+import android.platform.test.annotations.FlakyTest;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.Properties;
@@ -465,6 +466,7 @@ public class TestXPathAPI extends FileBasedTest
   }
 
   // Android-added: Run main method as a JUnit test case.
+  @FlakyTest(bugId = 292520220)
   @Test
   public void main() {
     main(new String[0]);
