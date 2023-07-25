@@ -136,6 +136,7 @@ java_library_static {
     libs: [
         "apache-xml",
         "junit",
+        "platform-test-annotations",
     ],
     sdk_version: "none",
     system_modules: "core-all-system-modules",
