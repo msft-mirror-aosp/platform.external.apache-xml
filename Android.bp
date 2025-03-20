@@ -70,6 +70,7 @@ java_library {
     ],
     srcs: ["src/main/java/**/*.java"],
     java_resource_dirs: ["src/main/java"],
+    exclude_java_resources: ["src/main/java/**/*.src"],
 
     installable: true,
     hostdex: true,
